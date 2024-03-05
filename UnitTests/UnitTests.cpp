@@ -1,7 +1,6 @@
 #include "pch.h"
 #include "CppUnitTest.h"
 
-//extern "C" int output_result(int,int);
 extern "C" char* output_result(char*, char*);
 
 
@@ -12,7 +11,7 @@ namespace UnitTests
 	TEST_CLASS(UnitTests)
 	{
 	public:
-// --------- BASE CASES ---------- //
+// --------------- VALID TEST CASES ---------------- //
 		TEST_METHOD(TestOutputResult_Draw_PrintDraw)
 		{
 			char* p1 = "rock";
@@ -38,6 +37,7 @@ namespace UnitTests
 			Assert::AreEqual(actual, expected);
 		}
 
+// ------------- INVALID TEST CASES ----------------//
 		TEST_METHOD(TestOutputResult_InvalidWordInput_PrintInvalid)
 		{
 			char* p1 = "brick";
@@ -57,7 +57,7 @@ namespace UnitTests
 		TEST_METHOD(TestOutputResult_InvalidCapitalLetters_PrintInvalid)
 		{
 			char* p1 = "ROCK";
-			char* p2 = "ScissORs";
+			char* p2 = "Scissors";
 			char* expected = "Invalid";
 			char* actual = output_result(p1, p2);
 			Assert::AreEqual(actual, expected);
