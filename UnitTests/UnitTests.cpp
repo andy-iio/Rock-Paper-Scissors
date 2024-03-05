@@ -29,7 +29,6 @@ namespace UnitTests
 			char* actual = output_result(p1, p2);
 			Assert::AreEqual(actual, expected);
 		}
-
 		TEST_METHOD(TestOutputResult_Player2Wins_PrintPlayer2)
 		{
 			char* p1 = "scissors";
@@ -39,7 +38,7 @@ namespace UnitTests
 			Assert::AreEqual(actual, expected);
 		}
 
-		TEST_METHOD(TestOutputResult_InvalidInput_PrintInvalid)
+		TEST_METHOD(TestOutputResult_InvalidWordInput_PrintInvalid)
 		{
 			char* p1 = "brick";
 			char* p2 = "rock";
@@ -47,7 +46,22 @@ namespace UnitTests
 			char* actual = output_result(p1, p2);
 			Assert::AreEqual(actual, expected);
 		}
-
+		TEST_METHOD(TestOutputResult_InvalidNumberInput_PrintInvalid)
+		{
+			char* p1 = "1";
+			char* p2 = "4";
+			char* expected = "Invalid";
+			char* actual = output_result(p1, p2);
+			Assert::AreEqual(actual, expected);
+		}
+		TEST_METHOD(TestOutputResult_InvalidCapitalLetters_PrintInvalid)
+		{
+			char* p1 = "ROCK";
+			char* p2 = "ScissORs";
+			char* expected = "Invalid";
+			char* actual = output_result(p1, p2);
+			Assert::AreEqual(actual, expected);
+		}
 
 	};
 
